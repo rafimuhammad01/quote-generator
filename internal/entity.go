@@ -62,13 +62,13 @@ type Quote struct {
 func (q Quote) ParseNameToStrFormat(names []string) (string, []string) {
 	isCoveredAll := false
 	count := 1
-	namesVaridic := make([]string, 0)
+	namesVariadic := make([]string, 0)
 	for !isCoveredAll {
 		newSentence := strings.Replace(q.Sentences, fmt.Sprintf("[p%d]", count), "%s", 1)
 		if q.Sentences == newSentence {
 			count++
 		} else {
-			namesVaridic = append(namesVaridic, names[count-1])
+			namesVariadic = append(namesVariadic, names[count-1])
 			q.Sentences = newSentence
 		}
 
@@ -77,16 +77,16 @@ func (q Quote) ParseNameToStrFormat(names []string) (string, []string) {
 		}
 	}
 
-	return q.Sentences, namesVaridic
+	return q.Sentences, namesVariadic
 }
 
-func (q Quote) MatchSentencesWithNames(names []string, varidicNames []string) (string, error) {
+func (q Quote) MatchSentencesWithNames(names []string, variadic []string) (string, error) {
 	if q.NumberOfPeople != len(names) {
 		return "", GenerateError(ErrValidationError, "names must be equal with number of people")
 	}
 
-	newNameSlice := make([]interface{}, len(varidicNames))
-	for i, v := range varidicNames {
+	newNameSlice := make([]interface{}, len(variadic))
+	for i, v := range variadic {
 		newNameSlice[i] = v
 	}
 
