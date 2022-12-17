@@ -1,19 +1,20 @@
 package main
 
 import (
-	"database/sql"
 	"fmt"
-	"github.com/gofiber/fiber/v2"
-	"github.com/joho/godotenv"
 	"log"
 	"net/http"
 	"os"
 	"rafimuhammad01/quote-generator/database"
 	"rafimuhammad01/quote-generator/internal"
+
+	"github.com/gofiber/fiber/v2"
+	"github.com/jmoiron/sqlx"
+	"github.com/joho/godotenv"
 )
 
 var (
-	dbInit *sql.DB
+	dbInit *sqlx.DB
 
 	repoInit    internal.Repository
 	serviceInit internal.Service

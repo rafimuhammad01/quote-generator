@@ -2,6 +2,7 @@ package internal
 
 import (
 	"fmt"
+	"strings"
 )
 
 var (
@@ -53,15 +54,29 @@ func (g GenerateQuote) MatchNumberOfPeopleAndNames() (GenerateQuote, error) {
 }
 
 type Quote struct {
-	ID             string
-	Sentences      string
-	NumberOfPeople int
+	ID             int    `json:"id" db:"id"`
+	Sentences      string `json:"sentences" db:"sentences"`
+	NumberOfPeople int    `json:"number_of_people" db:"number_of_people"`
 }
 
-func (q Quote) MatchSentencesWithNames(names []any) (string, error) {
+func (q Quote) ParseNameToStrFormat() string {
+	var sentence string
+	for i := 1; i <= q.NumberOfPeople; i++ {
+		sentence = strings.ReplaceAll(q.Sentences, fmt.Sprintf("[p%d]", i), "%s")
+	}
+
+	return sentence
+}
+
+func (q Quote) MatchSentencesWithNames(names []string) (string, error) {
 	if q.NumberOfPeople != len(names) {
 		return "", GenerateError(ErrValidationError, "names must be equal with number of people")
 	}
 
-	return fmt.Sprintf(q.Sentences, names...), nil
+	newNameSlice := make([]interface{}, len(names))
+	for i, v := range names {
+		newNameSlice[i] = v
+	}
+
+	return fmt.Sprintf(q.Sentences, newNameSlice...), nil
 }

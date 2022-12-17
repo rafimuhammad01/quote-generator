@@ -1,0 +1,12 @@
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> I don’t go looking for trouble. Trouble usually finds me first',1);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> I was put on this earth to do one thing. <br> <b>[p1]:</b> Luckily I forgot what it was so I can do whatever I want.',1);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> Sweet dog you got there. <br> <b>Police:</b> Yes, this is our new drug sniffing dog. <br> <b>[p1]:</b> Still training huh? <br> <b>Police:</b> What do you mean? <br> <b>[p1]:</b> <br> <b>[p1]:</b> Never mind.',1);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> Raisins. It''s nature''s candy.',1);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> I''m against crime, and I''m not ashamed to admit it.',1);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> If the thought of something makes any of you giggle for longer than 15 seconds, you are to assume you’re not allowed to do it.',1);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> I hate when people ask me, ''What did you do today?'' Buddy listen, I woke up at noon and then it was five p.m., okay? I don''t KNOW!',1);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> If I fall down these stairs, I''m just going to lay down and accept my fate.',1);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> I’m a fool, not an idiot.',1);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> I hate taking off my glasses, because without them, my vision goes from Full HD all the way down to buffering at 240p and I just can''t handle that.',1);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> ...This is one of those moments where it doesn''t really matter what I have to say, isn''t it?',1);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> Is this a good idea? <br> <b>[p1]:</b> Probably not. <br> <b>[p1]:</b> Do I care? <br> <b>[p1]:</b> No.',1);

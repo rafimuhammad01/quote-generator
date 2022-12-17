@@ -5,23 +5,25 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+
+	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 )
 
 type repository struct {
-	db *sql.DB
+	db *sqlx.DB
 }
 
-func NewRepository(db *sql.DB) *repository {
+func NewRepository(db *sqlx.DB) *repository {
 	return &repository{db: db}
 }
 
 func (r repository) GetQuote(ctx context.Context, generator GenerateQuote) (*Quote, error) {
 	var quote Quote
 
-	queryStr := "SELECT * FROM quote WHERE number_of_people = $1"
+	queryStr := "SELECT id, sentences, number_of_people FROM quote WHERE number_of_people = $1 ORDER BY RANDOM() LIMIT 1"
 
-	err := r.db.QueryRowContext(ctx, queryStr, generator.NumberOfPeople).Scan(&quote)
+	err := r.db.Get(&quote, queryStr, generator.NumberOfPeople)
 	if err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
 			return nil, GenerateError(ErrDataNotFound, fmt.Sprintf("data with number of people %d doesn't exist", generator.NumberOfPeople))
@@ -30,5 +32,6 @@ func (r repository) GetQuote(ctx context.Context, generator GenerateQuote) (*Quo
 		return nil, GenerateError(ErrInternalServer, err.Error())
 	}
 
+	quote.Sentences = quote.ParseNameToStrFormat()
 	return &quote, nil
 }

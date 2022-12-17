@@ -1,12 +1,13 @@
 package database
 
 import (
-	"database/sql"
 	"fmt"
 	"log"
+
+	"github.com/jmoiron/sqlx"
 )
 
-func PostgresInit(username, password, host, name, port string, env ...string) *sql.DB {
+func PostgresInit(username, password, host, name, port string, env ...string) *sqlx.DB {
 	connStr := fmt.Sprintf("postgresql://%s:%s@%s:%s/%s", username, password, host, port, name)
 	if len(env) == 0 {
 		log.Println("env not stated, will be use local env by default")
@@ -20,7 +21,7 @@ func PostgresInit(username, password, host, name, port string, env ...string) *s
 	}
 
 	// Connect to database
-	db, err := sql.Open("postgres", connStr)
+	db, err := sqlx.Open("postgres", connStr)
 	if err != nil {
 		log.Fatal("cannot connect to postgres: ", err)
 	}
