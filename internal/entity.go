@@ -59,36 +59,14 @@ type Quote struct {
 	NumberOfPeople int    `json:"number_of_people" db:"number_of_people"`
 }
 
-func (q Quote) ParseNameToStrFormat(names []string) (string, []string) {
-	isCoveredAll := false
-	count := 1
-	namesVariadic := make([]string, 0)
-	for !isCoveredAll {
-		newSentence := strings.Replace(q.Sentences, fmt.Sprintf("[p%d]", count), "%s", 1)
-		if q.Sentences == newSentence {
-			count++
-		} else {
-			namesVariadic = append(namesVariadic, names[count-1])
-			q.Sentences = newSentence
-		}
-
-		if count > len(names) {
-			isCoveredAll = true
-		}
-	}
-
-	return q.Sentences, namesVariadic
-}
-
-func (q Quote) MatchSentencesWithNames(names []string, variadic []string) (string, error) {
+func (q Quote) MatchSentencesWithNames(names []string) (string, error) {
 	if q.NumberOfPeople != len(names) {
 		return "", GenerateError(ErrValidationError, "names must be equal with number of people")
 	}
 
-	newNameSlice := make([]interface{}, len(variadic))
-	for i, v := range variadic {
-		newNameSlice[i] = v
+	for i, v := range names {
+		q.Sentences = strings.ReplaceAll(q.Sentences, fmt.Sprintf("[p%d]", i+1), v)
 	}
 
-	return fmt.Sprintf(q.Sentences, newNameSlice...), nil
+	return q.Sentences, nil
 }

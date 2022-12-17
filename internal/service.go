@@ -34,12 +34,8 @@ func (s *service) GenerateQuote(ctx context.Context, input GenerateQuote) (*Quot
 		return nil, err
 	}
 
-	// prepare names
-	sentence, names := resp.ParseNameToStrFormat(input.Names)
-	resp.Sentences = sentence
-
 	// parsing to name
-	namedString, err := resp.MatchSentencesWithNames(input.Names, names)
+	namedString, err := resp.MatchSentencesWithNames(input.Names)
 	if err != nil {
 		return nil, err
 	}

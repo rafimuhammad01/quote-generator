@@ -1,0 +1,11 @@
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> So, what''s for dinner? <br> <b>[p2], staring at the food they burnt:</b> Regret.',2);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> [p2] told me that brown is just navy orange, and I have never been more disappointed with something I agree with.',2);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> Is this about me? <br> <b>[p2]:</b> No. <br> <b>[p1]:</b> Then I''ve lost interest.',2);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> Don’t be sad! <br> <b>[p2]:</b> Why not? <br> <b>[p1]:</b> <br> <b>[p1]:</b> I don’t have a good answer.',2);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> I''m tired. <br> <b>[p2]:</b> You slept for three hours last night! Why are you surprised?! <br> <b>[p1]:</b> I''m not surprised. I just wanted to complain about it.',2);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> I love hearing [p2] shouting at someone else. It makes such a nice change.',2);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> Is there something you would like to say, [p2]? <br> <b>[p2]:</b> Oh, there are SEVERAL things I would like to say.',2);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> Are you alright with constructive criticism? I don''t want to sound mean. <br> <b>[p2]:</b> No, go ahead. I want to hear it. <br> <b>[p1]:</b> It sucks. <br> <b>[p2]:</b> That''s not constructive criticism.',2);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> I''ve been expecting you, [p2]. <br> <b>[p2]:</b> How did you do that without turning around? <br> <b>[p1]:</b> Let''s just say the first few people I did that to were not you.',2);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> So, you lied to me? <br> <b>[p2]:</b> That depends on how you define lying. <br> <b>[p1]:</b> Well, I define it as not telling the truth. How do you define it? <br> <b>[p2]:</b> Um, reclining your body in a horizontal position?',2);
+INSERT INTO quote(sentences,number_of_people) VALUES ('<b>[p1]:</b> [p2]… I’m bleeding… <br> <b>[p2]:</b> Oh god… what’s your blood type?! <br> <b>[p1]:</b> B positive… <br> <b>[p2]:</b> <i>I’m trying to but you’re bleeding-</i>',2);

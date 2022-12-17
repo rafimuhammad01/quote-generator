@@ -1,0 +1,1 @@
+DELETE FROM qoute WHERE number_of_people=3;
