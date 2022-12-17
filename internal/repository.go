@@ -32,6 +32,5 @@ func (r repository) GetQuote(ctx context.Context, generator GenerateQuote) (*Quo
 		return nil, GenerateError(ErrInternalServer, err.Error())
 	}
 
-	quote.Sentences = quote.ParseNameToStrFormat()
 	return &quote, nil
 }
