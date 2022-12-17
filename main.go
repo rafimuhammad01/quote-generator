@@ -8,8 +8,8 @@ import (
 	"rafimuhammad01/quote-generator/database"
 	"rafimuhammad01/quote-generator/internal"
 
-	"github.com/gin-contrib/cors"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/jmoiron/sqlx"
 	"github.com/joho/godotenv"
 )
