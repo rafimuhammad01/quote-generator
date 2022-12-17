@@ -8,6 +8,7 @@ import (
 	"rafimuhammad01/quote-generator/database"
 	"rafimuhammad01/quote-generator/internal"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gofiber/fiber/v2"
 	"github.com/jmoiron/sqlx"
 	"github.com/joho/godotenv"
@@ -45,6 +46,7 @@ func main() {
 	InitDependency()
 
 	app := fiber.New(fiber.Config{ErrorHandler: internal.ErrorHandler})
+	app.Use(cors.New())
 
 	api := app.Group("/api/v1")
 	api.Get("/generate-quote", handlerInit.GenerateQuote)
