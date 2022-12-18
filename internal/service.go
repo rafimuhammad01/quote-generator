@@ -18,6 +18,9 @@ func NewService(repository Repository) *service {
 }
 
 func (s *service) GenerateQuote(ctx context.Context, input GenerateQuote) (*Quote, error) {
+	// sanitize input
+	input = input.Sanitize()
+
 	// validate input
 	if err := input.Validate(); err != nil {
 		return nil, err

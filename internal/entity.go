@@ -24,6 +24,11 @@ type GenerateQuote struct {
 	Names          []string `json:"names" query:"names"`
 }
 
+func (g GenerateQuote) Sanitize() GenerateQuote {
+	g.Names = RemoveInSliceString(g.Names, "")
+	return g
+}
+
 func (g GenerateQuote) Validate() error {
 	if g.NumberOfPeople == 0 {
 		return GenerateError(ErrValidationError, "number of people cannot be 0")
