@@ -48,6 +48,14 @@ func main() {
 	app := fiber.New(fiber.Config{ErrorHandler: internal.ErrorHandler})
 	app.Use(cors.New())
 
+	app.Get("/", func(ctx *fiber.Ctx) error {
+		return ctx.Status(http.StatusOK).JSON(
+			fiber.Map{
+				"message": "OK",
+			},
+		)
+	})
+
 	api := app.Group("/api/v1")
 	api.Get("/generate-quote", handlerInit.GenerateQuote)
 	app.Use(func(ctx *fiber.Ctx) error {

@@ -1,17 +1,22 @@
 version: '3.8'
 services:
-  web:
-    build: .
+  backend:
+    image: gcr.io/kowan-final-project/quote-generator
     ports:
       - "8080:8080"
-    restart: unless-stopped
+    restart: always
+    env_file:
+      - .env
     depends_on:
       - postgres
     networks:
       - backend
+    labels:
+      kompose.service.type: LoadBalancer
+
   postgres:
     image: postgres:14.5-alpine3.16
-    restart: unless-stopped
+    restart: always
     environment:
       - POSTGRES_DB=quote_generator
       - POSTGRES_USER=rafi
@@ -24,7 +29,5 @@ services:
       - backend
 volumes:
   postgres:
-    driver: local
-
 networks:
   backend:
