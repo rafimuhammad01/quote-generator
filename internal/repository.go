@@ -34,3 +34,20 @@ func (r repository) GetQuote(ctx context.Context, generator GenerateQuote) (*Quo
 
 	return &quote, nil
 }
+
+func (r repository) GetQuoteById(ctx context.Context, id int) (*Quote, error) {
+	var quote Quote
+
+	queryStr := "SELECT id, sentences, number_of_people FROM quote WHERE id = $1 LIMIT 1"
+
+	err := r.db.Get(&quote, queryStr, id)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, GenerateError(ErrDataNotFound, fmt.Sprintf("data with id of %d doesn't exist", id))
+		}
+
+		return nil, GenerateError(ErrInternalServer, err.Error())
+	}
+
+	return &quote, nil
+}

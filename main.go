@@ -58,6 +58,7 @@ func main() {
 
 	api := app.Group("/api/v1")
 	api.Get("/generate-quote", handlerInit.GenerateQuote)
+	api.Get("/shuffle-quote", handlerInit.ShuffleQuote)
 	app.Use(func(ctx *fiber.Ctx) error {
 		return ctx.Status(http.StatusNotFound).JSON(fiber.Map{
 			"message": "resource not found",
